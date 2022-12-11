@@ -15,6 +15,8 @@ public partial class EntityFrameworkContext : DbContext
     {
     }
 
+    public virtual DbSet<Color> Colors { get; set; }
+
     public virtual DbSet<User> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -23,6 +25,18 @@ public partial class EntityFrameworkContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Color>(entity =>
+        {
+            entity.Property(e => e.Id)
+                .ValueGeneratedNever()
+                .HasColumnName("ID");
+            entity.Property(e => e.Color1)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("Color");
+            entity.Property(e => e.Info).HasColumnType("text");
+        });
+
         modelBuilder.Entity<User>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK_MVC");
