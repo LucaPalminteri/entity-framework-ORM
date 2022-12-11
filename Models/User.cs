@@ -9,7 +9,7 @@ public partial class User
 
     public string Name { get; set; } = null!;
 
-    public byte[] Key { get; set; } = null!;
+    public string Key { get; set; } = null!;
 
     public DateTime Date { get; set; }
 }

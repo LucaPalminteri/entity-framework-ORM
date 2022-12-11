@@ -17,6 +17,8 @@ public partial class EntityFrameworkContext : DbContext
 
     public virtual DbSet<Color> Colors { get; set; }
 
+    public virtual DbSet<Publicacione> Publicaciones { get; set; }
+
     public virtual DbSet<User> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -27,14 +29,31 @@ public partial class EntityFrameworkContext : DbContext
     {
         modelBuilder.Entity<Color>(entity =>
         {
-            entity.Property(e => e.Id)
-                .ValueGeneratedNever()
-                .HasColumnName("ID");
+            entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.Color1)
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("Color");
             entity.Property(e => e.Info).HasColumnType("text");
+        });
+
+        modelBuilder.Entity<Publicacione>(entity =>
+        {
+            entity.HasKey(e => e.PublicacionId);
+
+            entity.ToTable("Publicaciones", "LMV");
+
+            entity.Property(e => e.PublicacionId).HasColumnName("PublicacionID");
+            entity.Property(e => e.Nombre)
+                .HasMaxLength(150)
+                .IsUnicode(false);
+            entity.Property(e => e.ProductoId).HasColumnName("ProductoID");
+            entity.Property(e => e.ServicioId).HasColumnName("ServicioID");
+            entity.Property(e => e.TcodigoDePublicacionWeb).HasColumnName("TCodigoDePublicacionWeb");
+            entity.Property(e => e.TemplateDetalleCompletoId).HasColumnName("TemplateDetalleCompletoID");
+            entity.Property(e => e.TpublicacionWebProductoId).HasColumnName("TPublicacionWebProductoID");
+            entity.Property(e => e.VigenciaDesde).HasColumnType("datetime");
+            entity.Property(e => e.VigenciaHasta).HasColumnType("datetime");
         });
 
         modelBuilder.Entity<User>(entity =>
@@ -43,7 +62,9 @@ public partial class EntityFrameworkContext : DbContext
 
             entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.Date).HasColumnType("date");
-            entity.Property(e => e.Key).HasMaxLength(50);
+            entity.Property(e => e.Key)
+                .HasMaxLength(50)
+                .IsUnicode(false);
             entity.Property(e => e.Name)
                 .HasMaxLength(50)
                 .IsUnicode(false);

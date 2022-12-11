@@ -1,0 +1,83 @@
+﻿@model EntityFramework.Models.Publicacione
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Publicacione</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ProductoId" class="control-label"></label>
+                <input asp-for="ProductoId" class="form-control" />
+                <span asp-validation-for="ProductoId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TpublicacionWebProductoId" class="control-label"></label>
+                <input asp-for="TpublicacionWebProductoId" class="form-control" />
+                <span asp-validation-for="TpublicacionWebProductoId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TcodigoDePublicacionWeb" class="control-label"></label>
+                <input asp-for="TcodigoDePublicacionWeb" class="form-control" />
+                <span asp-validation-for="TcodigoDePublicacionWeb" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TemplateDetalleCompletoId" class="control-label"></label>
+                <input asp-for="TemplateDetalleCompletoId" class="form-control" />
+                <span asp-validation-for="TemplateDetalleCompletoId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StockMinimo" class="control-label"></label>
+                <input asp-for="StockMinimo" class="form-control" />
+                <span asp-validation-for="StockMinimo" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Activo" /> @Html.DisplayNameFor(model => model.Activo)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="VigenciaDesde" class="control-label"></label>
+                <input asp-for="VigenciaDesde" class="form-control" />
+                <span asp-validation-for="VigenciaDesde" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VigenciaHasta" class="control-label"></label>
+                <input asp-for="VigenciaHasta" class="form-control" />
+                <span asp-validation-for="VigenciaHasta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CodProducto" class="control-label"></label>
+                <input asp-for="CodProducto" class="form-control" />
+                <span asp-validation-for="CodProducto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServicioId" class="control-label"></label>
+                <input asp-for="ServicioId" class="form-control" />
+                <span asp-validation-for="ServicioId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

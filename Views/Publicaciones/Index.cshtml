@@ -1,0 +1,95 @@
+﻿@model IEnumerable<EntityFramework.Models.Publicacione>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductoId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TpublicacionWebProductoId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TcodigoDePublicacionWeb)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TemplateDetalleCompletoId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StockMinimo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Activo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VigenciaDesde)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VigenciaHasta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodProducto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServicioId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductoId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TpublicacionWebProductoId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TcodigoDePublicacionWeb)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TemplateDetalleCompletoId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StockMinimo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Activo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VigenciaDesde)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VigenciaHasta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodProducto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServicioId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PublicacionId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PublicacionId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PublicacionId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
